@@ -519,5 +519,29 @@ SIMS.pareto=el=>build(el,{w:680,h:242,
   <b>Principio de Pareto:</b> pocas causas vitales frente a muchas triviales. Vale igual para defectos de calidad, referencias de almacén o clientes.
   <span class="hint">Baja la concentración hasta 0,3: la distribución se aplana y el principio de Pareto deja de cumplirse. Comprobarlo con los datos reales es el primer paso antes de aplicar la clasificación.</span>`);}});
 
+
+
+
+
+
+/* ---- paso a paso declarativo ---- */
+SIMS.__paso=(el,D)=>build(el,{w:D.w||660,h:D.h||340,
+ sliders:[{k:'paso',v:0,min:0,max:D.steps.length,step:1,l:'paso de la resolución (0 = enunciado)',u:''}],
+ draw(a){a.clear();const g=a.g,p=a.st.paso;
+  const it=(x,col)=>{const k=x[0];
+   if(k==='t')a.txt(x[1],x[2],x[3],col,x[4]||13,x[5]||'left');
+   else if(k==='l')a.line(x[1],x[2],x[3],x[4],col,x[5]||1.5,x[6]);
+   else if(k==='a')a.arrow(x[1],x[2],x[3],x[4],col,x[5]);
+   else if(k==='c')a.circ(x[1],x[2],x[3],col,!!x[4]);
+   else if(k==='r'){g.strokeStyle=col;g.lineWidth=1.8;if(x[5]){g.fillStyle=col;g.globalAlpha=.18;g.fillRect(x[1],x[2],x[3],x[4]);g.globalAlpha=1;}g.strokeRect(x[1],x[2],x[3],x[4]);}
+   else if(k==='p'){g.strokeStyle=col;g.lineWidth=x[2]||2;g.beginPath();x[1].forEach((q,i)=>i?g.lineTo(q[0],q[1]):g.moveTo(q[0],q[1]));g.stroke();}};
+  (D.base||[]).forEach(x=>it(x,C.muted));
+  D.steps.forEach((s,i)=>{if(i+1>p)return;const cur=(i+1===p);(s.add||[]).forEach(x=>it(x,cur?C.d:C.text));if(cur)(s.now||[]).forEach(x=>it(x,C.d));});
+  a.html('<div>'+(p===0?D.q:D.steps[p-1].text)+'</div>');}});
+/* ---- fin paso a paso declarativo ---- */
+
+/* ---- paso2 cpmPaso ---- */
+SIMS.cpmPaso=el=>SIMS.__paso(el,{"w":660,"h":330,"q":"Calcula la duración mínima y el camino crítico de un proyecto con cuatro actividades y precedencias A → (B, C) → D. Sube el paso.","base":[["t","A(3)  B(2, tras A)  C(4, tras A)  D(3, tras B y C)",30,26,13,"left"],["l",120,62,120,280,0.8,[3,4]],["t","0",120,56,11,"center"],["l",208,62,208,280,0.8,[3,4]],["t","2",208,56,11,"center"],["l",296,62,296,280,0.8,[3,4]],["t","4",296,56,11,"center"],["l",384,62,384,280,0.8,[3,4]],["t","6",384,56,11,"center"],["l",472,62,472,280,0.8,[3,4]],["t","8",472,56,11,"center"],["l",560,62,560,280,0.8,[3,4]],["t","10",560,56,11,"center"]],"steps":[{"text":"Un proyecto tiene cuatro actividades: <b>A</b> (3 días), <b>B</b> (2, tras A), <b>C</b> (4, tras A) y <b>D</b> (3, tras B y C). Se busca la duración mínima y las actividades críticas con el método CPM.","add":[]},{"text":"<b>Pasada hacia delante</b> (inicios y fines más tempranos): A empieza en 0 y termina en <b>3</b>.","add":[["r",120,70,132,30,1],["t","A",186.0,90,14,"center"],["t","A: ES 0 · EF 3",40,90,12,"left"]]},{"text":"B y C empiezan cuando termina A (día 3). <b>B</b> acaba en 3 + 2 = <b>5</b>; <b>C</b> acaba en 3 + 4 = <b>7</b>.","add":[["r",252,122,88,30,1],["t","B",296.0,142,14,"center"],["r",252,174,176,30,1],["t","C",340.0,194,14,"center"],["t","B: ES 3 · EF 5",40,142,12,"left"],["t","C: ES 3 · EF 7",40,194,12,"left"]]},{"text":"D necesita que acaben B y C: empieza en el <b>máximo</b>(5, 7) = <b>7</b> y acaba en <b>10</b>. La duración mínima del proyecto es <b>10 días</b>.","add":[["r",428,226,132,30,1],["t","D",494.0,246,14,"center"],["t","D: ES 7 · EF 10  →  T = 10",40,246,12,"left"]]},{"text":"<b>Pasada hacia atrás</b> (tardíos): D debe terminar en 10 (LF = 10, LS = 7); C debe terminar en 7 (LS = 3); B puede terminar en 7, es decir <b>LS = 5</b>; A termina en el mínimo(5, 3) = 3 (LS = 0).","add":[["t","LS(B) = 5",340,166,12,"center"]]},{"text":"<b>Holgura = LS − ES</b>: A = 0, C = 0, D = 0 y <b>B = 5 − 3 = 2</b>. El <b>camino crítico</b> (holgura 0) es <b>A → C → D</b>, de 3 + 4 + 3 = 10 días. B puede retrasarse 2 días sin alargar el proyecto.","add":[["t","camino crítico: A → C → D (10 d) · holgura de B = 2 d",556,305,13,"right"]]}]});
+/* ---- fin paso2 cpmPaso ---- */
 document.querySelectorAll("[data-sim]").forEach(function(el){var k=el.getAttribute("data-sim");if(SIMS[k]){try{SIMS[k](el);}catch(e){console.error("sim "+k,e);}}else console.warn("sim no encontrada: "+k);});
 })();
