@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T8 Gestión de proyectos: PERT y CPM · Organización y Gestión de Empresas · Guía para aprobar</title>
+<meta name="description" content="Organización y Gestión de Empresas (UPCT, GIEyA): tema 8, Gestión de proyectos: PERT y CPM">
+<meta name="theme-color" content="#2f6b3a">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados del curso <time datetime="2022-09">2022/23</time> (guía docente firmada, apuntes de los ocho temas, casos prácticos y material del proyecto de creación de empresas) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Organización y Gestión de Empresas</a><span class="sep">›</span><span>Producción, calidad y proyectos</span><span class="sep">›</span><span>T8 · Gestión de proyectos: PERT y CPM</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">La empresa y su gestión</div><a href="tema-01.html" style="--tc:var(--c2)">T1 La empresa</a><a href="tema-02.html" style="--tc:var(--c3)">T2 La empresa y su entorno</a><a href="tema-03.html" style="--tc:var(--c4)">T3 Gestión empresarial</a><a href="tema-04.html" style="--tc:var(--c5)">T4 La función de producción y la productividad</a><div class="grp">Producción, calidad y proyectos</div><a href="tema-05.html" style="--tc:var(--c6)">T5 Diseño del sistema productivo</a><a href="tema-06.html" style="--tc:var(--c7)">T6 Planificación de la producción y gestión de stocks</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Gestión de la calidad</a><a href="tema-08.html" style="--tc:var(--c1)" class="on" aria-current="page">T8 Gestión de proyectos: PERT y CPM</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Cuestiones de teoría respondidas</a><a href="examenes.html" style="--tc:var(--c8)">Problemas de examen resueltos</a><a href="problemas.html" style="--tc:var(--c8)">Qué cae en el examen</a><a href="laboratorio.html" style="--tc:var(--c7)">Prácticas y proyecto</a><a href="formulario.html" style="--tc:var(--c8)">Formulario</a></nav>
+<main>
+<section class="sec tema" style="--tc:var(--c1);--tcs:var(--c1s)">
+<div class="sh"><span aria-hidden="true" class="badge">8</span><div class="shx"><p class="kick">Producción, calidad y proyectos · Tema 8</p><h2 id="t8">Gestión de proyectos: PERT y CPM</h2><div class="tags"><span class="tag">Producción, calidad y proyectos</span><span class="tag">Calidad y proyectos</span></div></div></div>
+<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> construir la red de un proyecto, calcular tiempos, holguras y camino crítico, y estimar la probabilidad de cumplir un plazo.</p><ul>
+<li>Un <b>proyecto</b> es un conjunto de actividades con un objetivo, un comienzo y un final, sujeto a tres restricciones: <b>calidad, coste y plazo</b>. Mejorar una suele empeorar las otras.</li>
+<li><b>CPM</b> (camino crítico) usa duraciones <b>deterministas</b>; <b>PERT</b> trabaja con tres estimaciones y una duración <b>probabilística</b>. En la práctica se combinan.</li>
+<li>La <b>red</b> representa las actividades y sus precedencias. En la notación de actividades en arcos hacen falta a veces <b>actividades ficticias</b> para respetar las precedencias sin duplicar nodos.</li>
+<li>Se calculan tiempos <b>early</b> (hacia adelante) y <b>last</b> (hacia atrás). La diferencia es la <b>holgura</b>.</li>
+<li>El <b>camino crítico</b> es la secuencia de actividades con <b>holgura cero</b>: define la duración del proyecto y cualquier retraso en él retrasa todo.</li>
+<li>Con PERT se puede calcular la <b>probabilidad</b> de terminar en un plazo dado, suponiendo que la duración total sigue una distribución normal.</li>
+</ul></div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 8 <span class="src">9 entradas</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Significado</th><th>Unidad · nota</th></tr><tr><td class="sym">a, m, b</td><td>estimaciones optimista, probable y pesimista</td><td class="u">PERT</td></tr><tr><td class="sym">te</td><td>duración esperada</td><td class="u">(a+4m+b)/6</td></tr><tr><td class="sym">σ²</td><td>varianza de la actividad</td><td class="u">((b−a)/6)²</td></tr><tr><td class="sym">ES, EF</td><td>inicio y fin más tempranos</td><td class="u"></td></tr><tr><td class="sym">LS, LF</td><td>inicio y fin más tardíos</td><td class="u"></td></tr><tr><td class="sym">HT</td><td>holgura total</td><td class="u">LS − ES</td></tr><tr><td class="sym">HL</td><td>holgura libre</td><td class="u">sin retrasar a las siguientes</td></tr><tr><td class="sym">camino crítico</td><td>actividades con holgura cero</td><td class="u"></td></tr><tr><td class="sym">crashing</td><td>compresión del proyecto</td><td class="u"></td></tr></table></div></div></details>
+<figure class="fig"><p class="ft">Figura interactiva - red PERT, holguras y camino critico</p><div data-sim="pert"></div><figcaption>Mueve los controles y observa cómo cambia el resultado: es el mismo cálculo que hay que saber hacer a mano en el examen de problemas.</figcaption></figure>
+<h3 id="t8-formulas">Fórmulas y conceptos que hay que saber</h3>
+<div class="box key"><ul>
+<li><b>Duración esperada (PERT):</b> \(t_e=\dfrac{a+4m+b}{6}\), con \(a\) optimista, \(m\) más probable y \(b\) pesimista.</li>
+<li><b>Varianza de una actividad:</b> \(\sigma^2=\left(\dfrac{b-a}{6}\right)^2\).</li>
+<li><b>Tiempos hacia adelante:</b> \(ES_j=\max(EF_i)\) de las precedentes · \(EF=ES+t_e\).</li>
+<li><b>Tiempos hacia atrás:</b> \(LF_i=\min(LS_j)\) de las siguientes · \(LS=LF-t_e\).</li>
+<li><b>Holgura total:</b> \(H_T=LS-ES=LF-EF\). Es crítica si \(H_T=0\).</li>
+<li><b>Holgura libre:</b> \(H_L=\min(ES_{siguientes})-EF\) — lo que se puede retrasar sin afectar a ninguna actividad posterior.</li>
+<li><b>Duración del proyecto:</b> la suma de los \(t_e\) del camino crítico.</li>
+<li><b>Probabilidad de cumplir un plazo \(T_p\):</b> \(z=\dfrac{T_p-T_{proy}}{\sigma_{crit}}\), con \(\sigma_{crit}=\sqrt{\sum\sigma^2_{crit}}\); se busca \(z\) en la tabla normal.</li>
+<li><b>Acortar el proyecto (<i>crashing</i>):</b> acelerar sólo actividades <b>críticas</b>, empezando por la de menor coste por día ganado, y recalcular el camino crítico en cada paso.</li>
+</ul></div>
+<h3 id="t8-metodo">Método paso a paso</h3>
+<ol class="steps"><li>Haz la <b>tabla de actividades</b> con sus precedencias y duraciones.</li>
+<li>Si son tres estimaciones, calcula \(t_e\) y \(\sigma^2\) de cada actividad.</li>
+<li>Dibuja la <b>red</b> respetando las precedencias.</li>
+<li>Recorre hacia <b>adelante</b> calculando \(ES\) y \(EF\): la duración del proyecto es el mayor \(EF\).</li>
+<li>Recorre hacia <b>atrás</b> calculando \(LF\) y \(LS\), empezando por el final con \(LF=T\).</li>
+<li>Calcula las <b>holguras</b>, identifica el camino crítico (holgura cero) y, si lo piden, la probabilidad de cumplir un plazo.</li></ol>
+<div class="box trap"><h4>Trampas típicas</h4><ul>
+<li>Olvidar que la duración del proyecto es el <b>máximo</b> de los EF, no la suma de todas las actividades.</li>
+<li>Al ir hacia atrás, tomar el <b>máximo</b> en vez del <b>mínimo</b> de los LS siguientes.</li>
+<li>Calcular la varianza del proyecto sumando <b>todas</b> las varianzas: sólo se suman las del <b>camino crítico</b>.</li>
+<li>Acelerar una actividad <b>no crítica</b>: no acorta el proyecto y cuesta dinero.</li>
+<li>No <b>recalcular</b> el camino crítico después de acortar: puede aparecer otro camino crítico distinto.</li>
+<li>Confundir holgura <b>total</b> con <b>libre</b>: la total puede estar compartida entre varias actividades de un mismo camino.</li>
+</ul></div>
+<h3 id="t8-problema">Problema resuelto</h3>
+<div class="prob"><div class="enun"><p class="et">Enunciado</p><p>Un proyecto tiene las siguientes actividades (duraciones en semanas):</p>
+<div class="tw"><table><tr><th>Actividad</th><th>Precedentes</th><th>a</th><th>m</th><th>b</th></tr>
+<tr><td>A</td><td>—</td><td>2</td><td>4</td><td>6</td></tr>
+<tr><td>B</td><td>—</td><td>3</td><td>5</td><td>13</td></tr>
+<tr><td>C</td><td>A</td><td>1</td><td>3</td><td>5</td></tr>
+<tr><td>D</td><td>A</td><td>4</td><td>6</td><td>14</td></tr>
+<tr><td>E</td><td>B, C</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><td>F</td><td>D, E</td><td>3</td><td>4</td><td>11</td></tr></table></div>
+<p>a) Calcula las duraciones esperadas y la duración del proyecto. b) Determina el camino crítico y las holguras. c) ¿Qué probabilidad hay de terminar en 20 semanas?</p></div>
+<details class="paso"><summary><span class="pn">✓</span>Ver solución paso a paso</summary><div class="inner"><p><b>a) Duraciones esperadas y varianzas:</b></p>
+<div class="tw"><table><tr><th>Act.</th><th>\(t_e=\dfrac{a+4m+b}{6}\)</th><th>\(\sigma^2=\left(\dfrac{b-a}{6}\right)^2\)</th></tr>
+<tr><td>A</td><td>(2+16+6)/6 = <b>4,0</b></td><td>0,444</td></tr>
+<tr><td>B</td><td>(3+20+13)/6 = <b>6,0</b></td><td>2,778</td></tr>
+<tr><td>C</td><td>(1+12+5)/6 = <b>3,0</b></td><td>0,444</td></tr>
+<tr><td>D</td><td>(4+24+14)/6 = <b>7,0</b></td><td>2,778</td></tr>
+<tr><td>E</td><td>(2+12+4)/6 = <b>3,0</b></td><td>0,111</td></tr>
+<tr><td>F</td><td>(3+16+11)/6 = <b>5,0</b></td><td>1,778</td></tr></table></div>
+<p><b>b) Tiempos y holguras.</b> Recorrido hacia adelante y hacia atrás:</p>
+<div class="tw"><table><tr><th>Act.</th><th>ES</th><th>EF</th><th>LS</th><th>LF</th><th>Holgura</th></tr>
+<tr><td><b>A</b></td><td>0</td><td>4</td><td>0</td><td>4</td><td><b>0 ✓</b></td></tr>
+<tr><td>B</td><td>0</td><td>6</td><td>2</td><td>8</td><td>2</td></tr>
+<tr><td>C</td><td>4</td><td>7</td><td>5</td><td>8</td><td>1</td></tr>
+<tr><td><b>D</b></td><td>4</td><td>11</td><td>4</td><td>11</td><td><b>0 ✓</b></td></tr>
+<tr><td>E</td><td>7</td><td>10</td><td>8</td><td>11</td><td>1</td></tr>
+<tr><td><b>F</b></td><td>11</td><td>16</td><td>11</td><td>16</td><td><b>0 ✓</b></td></tr></table></div>
+\[\textbf{Duración del proyecto}=\boxed{16\ \text{semanas}};\qquad\textbf{camino crítico}:\ \mathbf{A\to D\to F}\]
+<p><b>c) Probabilidad de terminar en 20 semanas.</b> Sólo se suman las varianzas del <b>camino crítico</b>:</p>
+\[\sigma^2_{proy}=0{,}444+2{,}778+1{,}778=5{,}00\ \Rightarrow\ \sigma=2{,}236\ \text{semanas}\]
+\[z=\frac{20-16}{2{,}236}=1{,}789\ \Rightarrow\ P(T\le20)=\boxed{96{,}3\ \%}\]
+<div class="box key"><p><b>Qué significa cada resultado:</b> el proyecto dura 16 semanas <b>en media</b>, y hay un 96 % de probabilidad de no pasar de 20. Para acortarlo hay que actuar sobre <b>A, D o F</b>: acelerar B o E no sirve de nada, porque tienen holgura. Y si se acortara D en 2 semanas, habría que <b>recalcular</b>, porque el camino B-E-F pasaría a ser crítico.</p></div></div></details></div>
+<h3 id="t8-auto">Autoevaluación</h3>
+<p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>¿Qué diferencia hay entre PERT y CPM?</summary><div class="inner"><p><b>CPM</b> usa duraciones deterministas; <b>PERT</b> usa tres estimaciones (optimista, más probable y pesimista) y trata la duración como una variable aleatoria.</p></div></details><details class="paso"><summary><span class="pn">2</span>¿Cómo se calcula la duración esperada en PERT?</summary><div class="inner"><p>\(t_e=\dfrac{a+4m+b}{6}\): una media ponderada que da peso cuádruple a la estimación más probable.</p></div></details><details class="paso"><summary><span class="pn">3</span>¿Qué es el camino crítico?</summary><div class="inner"><p>La secuencia de actividades con <b>holgura cero</b>. Determina la duración del proyecto: cualquier retraso en ellas retrasa todo el proyecto.</p></div></details><details class="paso"><summary><span class="pn">4</span>¿Qué varianzas se suman para calcular la del proyecto?</summary><div class="inner"><p>Sólo las de las actividades del <b>camino crítico</b>, no las de todas.</p></div></details><details class="paso"><summary><span class="pn">5</span>¿Qué diferencia hay entre holgura total y libre?</summary><div class="inner"><p>La <b>total</b> es lo que se puede retrasar sin alargar el proyecto; la <b>libre</b>, sin retrasar ninguna actividad siguiente. La libre nunca es mayor que la total.</p></div></details><details class="paso"><summary><span class="pn">6</span>¿Por qué hay que recalcular el camino crítico al acortar una actividad?</summary><div class="inner"><p>Porque al acortarla, otro camino puede convertirse en el más largo y pasar a ser el <b>nuevo camino crítico</b>: seguir acelerando el primero dejaría de servir.</p></div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-07.html"><small>← Anterior</small>T7 · Gestión de la calidad</a><a class="nx" href="cuestiones.html"><small>Siguiente →</small>Cuestiones de teoría</a></nav>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Organización y Gestión de Empresas (UPCT, GIEyA) · Datos tomados del curso <time datetime="2022-09">2022/23</time> (transparencias, formulario oficial, prácticas, seminarios y exámenes de 2012 a 2022) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>

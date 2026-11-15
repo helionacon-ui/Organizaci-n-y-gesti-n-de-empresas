@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T5 Diseño del sistema productivo · Organización y Gestión de Empresas · Guía para aprobar</title>
+<meta name="description" content="Organización y Gestión de Empresas (UPCT, GIEyA): tema 5, Diseño del sistema productivo">
+<meta name="theme-color" content="#2f6b3a">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados del curso <time datetime="2022-09">2022/23</time> (guía docente firmada, apuntes de los ocho temas, casos prácticos y material del proyecto de creación de empresas) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Organización y Gestión de Empresas</a><span class="sep">›</span><span>Producción, calidad y proyectos</span><span class="sep">›</span><span>T5 · Diseño del sistema productivo</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">La empresa y su gestión</div><a href="tema-01.html" style="--tc:var(--c2)">T1 La empresa</a><a href="tema-02.html" style="--tc:var(--c3)">T2 La empresa y su entorno</a><a href="tema-03.html" style="--tc:var(--c4)">T3 Gestión empresarial</a><a href="tema-04.html" style="--tc:var(--c5)">T4 La función de producción y la productividad</a><div class="grp">Producción, calidad y proyectos</div><a href="tema-05.html" style="--tc:var(--c6)" class="on" aria-current="page">T5 Diseño del sistema productivo</a><a href="tema-06.html" style="--tc:var(--c7)">T6 Planificación de la producción y gestión de stocks</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Gestión de la calidad</a><a href="tema-08.html" style="--tc:var(--c1)">T8 Gestión de proyectos: PERT y CPM</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Cuestiones de teoría respondidas</a><a href="examenes.html" style="--tc:var(--c8)">Problemas de examen resueltos</a><a href="problemas.html" style="--tc:var(--c8)">Qué cae en el examen</a><a href="laboratorio.html" style="--tc:var(--c7)">Prácticas y proyecto</a><a href="formulario.html" style="--tc:var(--c8)">Formulario</a></nav>
+<main>
+<section class="sec tema" style="--tc:var(--c6);--tcs:var(--c6s)">
+<div class="sh"><span aria-hidden="true" class="badge">5</span><div class="shx"><p class="kick">Producción, calidad y proyectos · Tema 5</p><h2 id="t5">Diseño del sistema productivo</h2><div class="tags"><span class="tag">Producción, calidad y proyectos</span><span class="tag">Producción</span></div></div></div>
+<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> tomar decisiones sobre producto, proceso, capacidad, localización y distribución en planta, y evaluar inversiones con VAN, TIR y plazo de recuperación.</p><ul>
+<li>El diseño del sistema productivo encadena cinco decisiones estratégicas: <b>producto</b>, <b>proceso</b>, <b>capacidad</b>, <b>localización</b> y <b>distribución en planta</b>. Cada una condiciona la siguiente.</li>
+<li>El <b>ciclo de vida del producto</b> (introducción, crecimiento, madurez, declive) determina qué proceso conviene: flexible al principio, eficiente en la madurez.</li>
+<li>La <b>matriz producto-proceso</b> relaciona volumen y variedad: taller (mucha variedad, poco volumen), lotes, línea y proceso continuo.</li>
+<li>La <b>capacidad</b> se decide con el horizonte de la demanda prevista. Hay que distinguir capacidad <b>proyectada</b>, <b>efectiva</b> y <b>real</b>.</li>
+<li>La <b>localización</b> se decide con métodos semicuantitativos (factores ponderados), económicos (punto muerto por localización) o geométricos (centro de gravedad).</li>
+<li>La <b>distribución en planta</b> puede ser por producto (en línea), por proceso (por talleres), de posición fija o celular.</li>
+<li>Toda alternativa se evalúa económicamente con <b>VAN</b>, <b>TIR</b> y <b>plazo de recuperación</b>.</li>
+</ul></div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 5 <span class="src">8 entradas</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Significado</th><th>Unidad · nota</th></tr><tr><td class="sym">VAN</td><td>valor actual neto</td><td class="u">€</td></tr><tr><td class="sym">TIR</td><td>tasa interna de retorno</td><td class="u">%</td></tr><tr><td class="sym">k</td><td>tasa de descuento</td><td class="u">%</td></tr><tr><td class="sym">payback</td><td>plazo de recuperación</td><td class="u">años</td></tr><tr><td class="sym">Q0</td><td>flujo de caja del año t</td><td class="u">€</td></tr><tr><td class="sym">capacidad proyectada</td><td>máxima teórica</td><td class="u"></td></tr><tr><td class="sym">capacidad efectiva</td><td>descontando paradas</td><td class="u"></td></tr><tr><td class="sym">centro de gravedad</td><td>localización por transporte</td><td class="u"></td></tr></table></div></div></details>
+<figure class="fig"><p class="ft">Calculadora interactiva - VAN, TIR y plazo de recuperacion</p><div data-sim="inversion"></div><figcaption>Mueve los controles y observa cómo cambia el resultado: es el mismo cálculo que hay que saber hacer a mano en el examen de problemas.</figcaption></figure>
+<h3 id="t5-formulas">Fórmulas y conceptos que hay que saber</h3>
+<div class="box key"><ul>
+<li><b>Utilización:</b> \(\dfrac{\text{producción real}}{\text{capacidad proyectada}}\) · <b>eficiencia:</b> \(\dfrac{\text{producción real}}{\text{capacidad efectiva}}\).</li>
+<li><b>Factores ponderados:</b> puntuación \(=\sum w_i\cdot p_i\), con \(\sum w_i=1\). Gana la mayor.</li>
+<li><b>Centro de gravedad:</b> \(x_c=\dfrac{\sum x_iV_i}{\sum V_i}\), \(y_c=\dfrac{\sum y_iV_i}{\sum V_i}\), con \(V_i\) el volumen transportado.</li>
+<li><b>Comparación económica de localizaciones:</b> \(CT_i=CF_i+c_{v,i}Q\); el <b>punto de indiferencia</b> entre dos es \(Q=\dfrac{CF_2-CF_1}{c_{v,1}-c_{v,2}}\).</li>
+<li><b>VAN:</b> \(VAN=-I_0+\displaystyle\sum_{t=1}^{n}\frac{Q_t}{(1+k)^t}\). Se acepta si \(VAN>0\).</li>
+<li><b>TIR:</b> el tipo \(r\) que anula el VAN. Se acepta si \(r>k\).</li>
+<li><b>Plazo de recuperación (payback):</b> años hasta que los flujos acumulados igualan la inversión. No tiene en cuenta lo que ocurre después ni el valor del dinero en el tiempo.</li>
+<li><b>Distribución en línea:</b> \(\text{ciclo}=\dfrac{\text{tiempo disponible}}{\text{producción deseada}}\); \(N_{min}=\dfrac{\sum t_i}{\text{ciclo}}\); eficiencia \(=\dfrac{\sum t_i}{N\cdot\text{ciclo}}\).</li>
+</ul></div>
+<h3 id="t5-metodo">Método paso a paso</h3>
+<ol class="steps"><li>Delimita la <b>decisión</b>: ¿capacidad, localización, inversión o equilibrado de línea?</li>
+<li>En localización, elige el método: <b>factores ponderados</b> si hay criterios cualitativos, <b>punto muerto</b> si hay costes y volumen, <b>centro de gravedad</b> si lo que pesa es el transporte.</li>
+<li>En inversiones, construye la <b>tabla de flujos de caja</b> año a año.</li>
+<li>Calcula <b>VAN</b> con la tasa de descuento dada, y después <b>TIR</b> y <b>payback</b>.</li>
+<li>Decide con el VAN como criterio principal, y usa los otros como información complementaria.</li>
+<li>Comprueba el <b>sentido</b> del resultado: un VAN positivo con TIR menor que k es señal de error.</li></ol>
+<div class="box trap"><h4>Trampas típicas</h4><ul>
+<li>Descontar el flujo del <b>año 0</b>: la inversión inicial no se descuenta.</li>
+<li>Confundir <b>capacidad efectiva</b> con <b>proyectada</b> al calcular utilización y eficiencia.</li>
+<li>En factores ponderados, usar pesos que no suman 1 sin normalizarlos.</li>
+<li>Decidir sólo por el <b>payback</b>: ignora todo lo que ocurre después de recuperar la inversión.</li>
+<li>Comparar proyectos de <b>distinta duración</b> o distinta inversión sólo por el VAN sin ajustar.</li>
+<li>Olvidar el <b>valor residual</b> si el enunciado lo da: es un flujo más del último año.</li>
+</ul></div>
+<h3 id="t5-problema">Problema resuelto</h3>
+<div class="prob"><div class="enun"><p class="et">Enunciado</p><p>Una empresa estudia una inversión de <b>50 000 €</b> que generará flujos de caja de <b>15 000, 18 000, 20 000 y 16 000 €</b> en cuatro años. La tasa de descuento es del <b>8 %</b>. a) Calcula el VAN, la TIR y el plazo de recuperación. b) Además, debe elegir entre tres localizaciones valoradas en cinco factores. Decide con factores ponderados.</p>
+<div class="tw"><table><tr><th>Factor</th><th>Peso</th><th>A</th><th>B</th><th>C</th></tr>
+<tr><td>Coste de la mano de obra</td><td>0,30</td><td>8</td><td>6</td><td>9</td></tr>
+<tr><td>Proximidad al mercado</td><td>0,25</td><td>7</td><td>9</td><td>6</td></tr>
+<tr><td>Transporte</td><td>0,20</td><td>9</td><td>7</td><td>6</td></tr>
+<tr><td>Mano de obra cualificada</td><td>0,15</td><td>6</td><td>8</td><td>9</td></tr>
+<tr><td>Incentivos fiscales</td><td>0,10</td><td>7</td><td>8</td><td>6</td></tr></table></div></div>
+<details class="paso"><summary><span class="pn">✓</span>Ver solución paso a paso</summary><div class="inner"><p><b>a1) VAN al 8 %:</b></p>
+\[VAN=-50\,000+\frac{15\,000}{1{,}08}+\frac{18\,000}{1{,}08^2}+\frac{20\,000}{1{,}08^3}+\frac{16\,000}{1{,}08^4}\]
+<div class="tw"><table><tr><th>Año</th><th>Flujo</th><th>Factor</th><th>Valor actual</th></tr>
+<tr><td>0</td><td>−50 000</td><td>1</td><td>−50 000</td></tr>
+<tr><td>1</td><td>15 000</td><td>0,9259</td><td>13 889</td></tr>
+<tr><td>2</td><td>18 000</td><td>0,8573</td><td>15 432</td></tr>
+<tr><td>3</td><td>20 000</td><td>0,7938</td><td>15 877</td></tr>
+<tr><td>4</td><td>16 000</td><td>0,7350</td><td>11 760</td></tr>
+<tr><td colspan="3"><b>VAN</b></td><td><b>+6958 €</b></td></tr></table></div>
+<p>El VAN es <b>positivo</b> ⇒ la inversión <b>se acepta</b>.</p>
+<p><b>a2) TIR.</b> Es el tipo que anula el VAN; resolviendo por tanteo o interpolación:</p>
+\[\boxed{TIR=13{,}98\ \%}>8\ \%\ \Rightarrow\ \text{se acepta}\]
+<p><b>a3) Plazo de recuperación.</b> Flujos acumulados: 15 000 · 33 000 · 53 000. Se recupera durante el <b>tercer año</b>:</p>
+\[PR=2+\frac{50\,000-33\,000}{20\,000}=\boxed{2{,}85\ \text{años}}\]
+<p><b>b) Localización por factores ponderados:</b></p>
+\[A=0{,}3(8)+0{,}25(7)+0{,}2(9)+0{,}15(6)+0{,}1(7)=\mathbf{7{,}55}\]
+\[B=0{,}3(6)+0{,}25(9)+0{,}2(7)+0{,}15(8)+0{,}1(8)=7{,}45\]
+\[C=0{,}3(9)+0{,}25(6)+0{,}2(6)+0{,}15(9)+0{,}1(6)=7{,}35\]
+<p>Gana <b>A</b>, aunque por muy poco: las tres están entre 7,35 y 7,55. Conviene señalar que con diferencias tan pequeñas el resultado es <b>sensible a los pesos</b>, y que un cambio del 5 % en el peso del coste de la mano de obra cambiaría el orden.</p>
+<div class="box trap"><h4>Lo que suele pedirse además</h4><p>Un <b>análisis de sensibilidad</b>: cambiar un peso y ver si cambia la decisión. Cuando los resultados están tan próximos, la respuesta correcta no es «A», sino «A, pero la decisión no es robusta».</p></div></div></details></div>
+<h3 id="t5-auto">Autoevaluación</h3>
+<p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>¿Qué diferencia hay entre capacidad proyectada y efectiva?</summary><div class="inner"><p>La <b>proyectada</b> es la máxima teórica en condiciones ideales; la <b>efectiva</b> descuenta mantenimiento, cambios de producto y descansos. La utilización se mide sobre la primera y la eficiencia sobre la segunda.</p></div></details><details class="paso"><summary><span class="pn">2</span>¿Cuándo se usa el método del centro de gravedad?</summary><div class="inner"><p>Cuando el factor dominante es el <b>coste de transporte</b>: sitúa la instalación minimizando la distancia ponderada por los volúmenes transportados.</p></div></details><details class="paso"><summary><span class="pn">3</span>¿Por qué el VAN es mejor criterio que el payback?</summary><div class="inner"><p>Porque tiene en cuenta <b>todos</b> los flujos y el <b>valor del dinero en el tiempo</b>. El payback ignora lo que ocurre tras recuperar la inversión.</p></div></details><details class="paso"><summary><span class="pn">4</span>¿Qué significa que la TIR sea del 14 % con una tasa de descuento del 8 %?</summary><div class="inner"><p>Que el proyecto rinde más de lo que cuesta financiarlo: hay un margen de 6 puntos antes de que deje de ser rentable.</p></div></details><details class="paso"><summary><span class="pn">5</span>¿Qué es el punto de indiferencia entre dos localizaciones?</summary><div class="inner"><p>El volumen de producción para el que ambas tienen el mismo coste total: \(Q=\dfrac{CF_2-CF_1}{c_{v,1}-c_{v,2}}\). Por encima conviene la de más costes fijos y menos variables.</p></div></details><details class="paso"><summary><span class="pn">6</span>¿Qué distribución en planta conviene a mucha variedad y poco volumen?</summary><div class="inner"><p>La distribución <b>por proceso</b> (por talleres), que agrupa máquinas similares y es flexible. Con poco variedad y mucho volumen conviene la distribución <b>por producto</b> o en línea.</p></div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-04.html"><small>← Anterior</small>T4 · La función de producción y la productividad</a><a class="nx" href="tema-06.html"><small>Siguiente →</small>T6 · Planificación de la producción y gestión de stocks</a></nav>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Organización y Gestión de Empresas (UPCT, GIEyA) · Datos tomados del curso <time datetime="2022-09">2022/23</time> (transparencias, formulario oficial, prácticas, seminarios y exámenes de 2012 a 2022) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>

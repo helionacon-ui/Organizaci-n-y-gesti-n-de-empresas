@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T6 Planificación de la producción y gestión de stocks · Organización y Gestión de Empresas · Guía para aprobar</title>
+<meta name="description" content="Organización y Gestión de Empresas (UPCT, GIEyA): tema 6, Planificación de la producción y gestión de stocks">
+<meta name="theme-color" content="#2f6b3a">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados del curso <time datetime="2022-09">2022/23</time> (guía docente firmada, apuntes de los ocho temas, casos prácticos y material del proyecto de creación de empresas) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Organización y Gestión de Empresas</a><span class="sep">›</span><span>Producción, calidad y proyectos</span><span class="sep">›</span><span>T6 · Planificación de la producción y gestión de stocks</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">La empresa y su gestión</div><a href="tema-01.html" style="--tc:var(--c2)">T1 La empresa</a><a href="tema-02.html" style="--tc:var(--c3)">T2 La empresa y su entorno</a><a href="tema-03.html" style="--tc:var(--c4)">T3 Gestión empresarial</a><a href="tema-04.html" style="--tc:var(--c5)">T4 La función de producción y la productividad</a><div class="grp">Producción, calidad y proyectos</div><a href="tema-05.html" style="--tc:var(--c6)">T5 Diseño del sistema productivo</a><a href="tema-06.html" style="--tc:var(--c7)" class="on" aria-current="page">T6 Planificación de la producción y gestión de stocks</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Gestión de la calidad</a><a href="tema-08.html" style="--tc:var(--c1)">T8 Gestión de proyectos: PERT y CPM</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Cuestiones de teoría respondidas</a><a href="examenes.html" style="--tc:var(--c8)">Problemas de examen resueltos</a><a href="problemas.html" style="--tc:var(--c8)">Qué cae en el examen</a><a href="laboratorio.html" style="--tc:var(--c7)">Prácticas y proyecto</a><a href="formulario.html" style="--tc:var(--c8)">Formulario</a></nav>
+<main>
+<section class="sec tema" style="--tc:var(--c7);--tcs:var(--c7s)">
+<div class="sh"><span aria-hidden="true" class="badge">6</span><div class="shx"><p class="kick">Producción, calidad y proyectos · Tema 6</p><h2 id="t6">Planificación de la producción y gestión de stocks</h2><div class="tags"><span class="tag">Producción, calidad y proyectos</span><span class="tag">Producción</span></div></div></div>
+<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> calcular el pedido óptimo, el punto de pedido y el stock de seguridad, aplicar la clasificación ABC y resolver un MRP sencillo.</p><ul>
+<li>Los <b>inventarios</b> existen para desacoplar fases del proceso, absorber variaciones de demanda y aprovechar descuentos por volumen. Pero <b>cuestan dinero</b>.</li>
+<li>Los <b>costes de inventario</b> son cuatro: de <b>almacenamiento</b> (o posesión), de <b>lanzamiento</b> (o emisión del pedido), de <b>rotura</b> y de <b>adquisición</b>.</li>
+<li>El <b>modelo de Wilson (EOQ)</b> busca el tamaño de pedido que minimiza la suma del coste de lanzamiento y el de posesión. En el óptimo, <b>ambos costes se igualan</b>.</li>
+<li>La <b>clasificación ABC</b> ordena los artículos por valor: los A son el 20 % de las referencias y el 80 % del valor (control riguroso), los B un 30 % y 15 %, y los C el 50 % con el 5 % (control sencillo).</li>
+<li>La <b>planificación de necesidades de material (MRP)</b> parte del plan maestro, la lista de materiales y el inventario disponible para calcular <b>qué</b> pedir, <b>cuánto</b> y <b>cuándo</b>.</li>
+<li>El MRP trabaja con <b>demanda dependiente</b> (la de los componentes, que se deduce de la del producto final), mientras que el EOQ sirve para <b>demanda independiente</b>.</li>
+</ul></div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 6 <span class="src">9 entradas</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Significado</th><th>Unidad · nota</th></tr><tr><td class="sym">D</td><td>demanda anual</td><td class="u">ud/año</td></tr><tr><td class="sym">S</td><td>coste de lanzamiento</td><td class="u">€/pedido</td></tr><tr><td class="sym">H</td><td>coste de posesión</td><td class="u">€/ud·año</td></tr><tr><td class="sym">Q*</td><td>pedido óptimo</td><td class="u">√(2DS/H)</td></tr><tr><td class="sym">N</td><td>pedidos al año</td><td class="u">D/Q*</td></tr><tr><td class="sym">PP</td><td>punto de pedido</td><td class="u">d·L + SS</td></tr><tr><td class="sym">SS</td><td>stock de seguridad</td><td class="u">ud</td></tr><tr><td class="sym">MRP</td><td>planificación de necesidades de material</td><td class="u"></td></tr><tr><td class="sym">ABC</td><td>clasificación por valor</td><td class="u">80/15/5</td></tr></table></div></div></details>
+<figure class="fig"><p class="ft">Calculadora interactiva - pedido optimo y punto de pedido</p><div data-sim="eoq"></div><figcaption>Mueve los controles y observa cómo cambia el resultado: es el mismo cálculo que hay que saber hacer a mano en el examen de problemas.</figcaption></figure>
+<h3 id="t6-formulas">Fórmulas y conceptos que hay que saber</h3>
+<div class="box key"><ul>
+<li><b>Pedido óptimo (Wilson):</b> \(Q^*=\sqrt{\dfrac{2DS}{H}}\), con \(D\) demanda anual, \(S\) coste de lanzamiento por pedido y \(H\) coste de posesión por unidad y año.</li>
+<li><b>Coste total de gestión:</b> \(CT=\dfrac{D}{Q}S+\dfrac{Q}{2}H\); en el óptimo, \(\dfrac{D}{Q^*}S=\dfrac{Q^*}{2}H\).</li>
+<li><b>Número de pedidos al año:</b> \(N=\dfrac{D}{Q^*}\) · <b>tiempo entre pedidos:</b> \(T=\dfrac{365}{N}\) días.</li>
+<li><b>Punto de pedido:</b> \(PP=d\cdot L+SS\), con \(d\) demanda diaria, \(L\) plazo de entrega y \(SS\) stock de seguridad.</li>
+<li><b>Stock de seguridad:</b> \(SS=z\cdot\sigma_L\), con \(z\) el valor normal del nivel de servicio (1,65 para el 95 %; 2,33 para el 99 %).</li>
+<li><b>Stock medio:</b> \(\dfrac{Q}{2}+SS\) · <b>rotación:</b> \(\dfrac{D}{\text{stock medio}}\).</li>
+<li><b>MRP:</b> necesidades netas = necesidades brutas − disponible − recepciones programadas; el <b>lanzamiento</b> se adelanta el plazo de entrega (<i>offsetting</i>).</li>
+<li><b>Descuento por cantidad:</b> comparar \(CT=\dfrac{D}{Q}S+\dfrac{Q}{2}H+DP\) en el \(Q^*\) de cada tramo y en los puntos de corte.</li>
+</ul></div>
+<h3 id="t6-metodo">Método paso a paso</h3>
+<ol class="steps"><li>Identifica si la demanda es <b>independiente</b> (EOQ) o <b>dependiente</b> (MRP).</li>
+<li>Para el EOQ, ordena los datos: \(D\) anual, \(S\) por pedido y \(H\) por unidad y año (ojo si lo dan como porcentaje del precio).</li>
+<li>Aplica la fórmula, calcula el número de pedidos y el coste total.</li>
+<li>Calcula el <b>punto de pedido</b> con la demanda diaria y el plazo de entrega.</li>
+<li>Para el MRP, construye la tabla por periodos: brutas, disponible, netas, recepción y lanzamiento.</li>
+<li><b>Comprueba</b>: en el óptimo del EOQ los dos costes deben salir iguales.</li></ol>
+<div class="box trap"><h4>Trampas típicas</h4><ul>
+<li>Mezclar <b>unidades de tiempo</b>: \(D\) anual con \(H\) mensual da un resultado sin sentido.</li>
+<li>Si \(H\) viene como <b>porcentaje del precio</b>, olvidar multiplicarlo por el precio unitario.</li>
+<li>Calcular el punto de pedido con la demanda <b>anual</b> en vez de la diaria.</li>
+<li>En el MRP, no <b>adelantar</b> el lanzamiento el plazo de entrega.</li>
+<li>Olvidar restar el <b>disponible</b> y las recepciones programadas al calcular las necesidades netas.</li>
+<li>Aplicar el EOQ a componentes de demanda dependiente: ahí el consumo es a saltos, no continuo.</li>
+</ul></div>
+<h3 id="t6-problema">Problema resuelto</h3>
+<div class="prob"><div class="enun"><p class="et">Enunciado</p><p>Una empresa consume <b>12 000 unidades</b> al año de un componente. Cada pedido cuesta <b>60 €</b> y mantener una unidad en almacén cuesta <b>3 €</b> al año. El plazo de entrega es de <b>10 días</b> y se quiere un stock de seguridad de <b>100 unidades</b>. a) Calcula el pedido óptimo, el número de pedidos y el coste anual de gestión. b) Calcula el punto de pedido. c) Comprueba el resultado.</p></div>
+<details class="paso"><summary><span class="pn">✓</span>Ver solución paso a paso</summary><div class="inner"><p><b>a) Pedido óptimo:</b></p>
+\[Q^*=\sqrt{\frac{2DS}{H}}=\sqrt{\frac{2\cdot12\,000\cdot60}{3}}=\sqrt{480\,000}=\boxed{693\ \text{unidades}}\]
+\[N=\frac{D}{Q^*}=\frac{12\,000}{693}=\boxed{17{,}3\ \text{pedidos/año}}\ \Rightarrow\ \text{uno cada }\frac{365}{17{,}3}=21{,}1\ \text{días}\]
+<p><b>Coste anual de gestión:</b></p>
+\[CT=\frac{D}{Q^*}S+\frac{Q^*}{2}H=17{,}3\cdot60+346{,}5\cdot3=1039{,}2+1039{,}2=\boxed{2078{,}5\ \text{€/año}}\]
+<p><b>b) Punto de pedido.</b> Con 365 días al año, la demanda diaria es \(d=12\,000/365=32{,}88\) ud/día:</p>
+\[PP=d\cdot L+SS=32{,}88\cdot10+100=\boxed{429\ \text{unidades}}\]
+<p>Cuando el stock baja a 429 unidades, se lanza un pedido de 693.</p>
+<p><b>c) Comprobación.</b> En el óptimo, el coste de lanzamiento y el de posesión deben ser <b>iguales</b>: 1039,2 € cada uno ✓. Si sale distinto, hay un error en la fórmula o en las unidades.</p>
+<div class="tw"><table><tr><th>Q</th><th>Coste de lanzamiento</th><th>Coste de posesión</th><th>Total</th></tr>
+<tr><td>400</td><td>1800,0</td><td>600,0</td><td>2400,0</td></tr>
+<tr><td><b>693</b></td><td><b>1039,2</b></td><td><b>1039,2</b></td><td><b>2078,5</b></td></tr>
+<tr><td>1000</td><td>720,0</td><td>1500,0</td><td>2220,0</td></tr></table></div>
+<div class="box key"><p><b>Lo útil del modelo:</b> la curva de coste total es <b>muy plana</b> cerca del óptimo. Pedir 600 o 800 unidades en vez de 693 encarece menos del 1 %, así que en la práctica se redondea al múltiplo de embalaje o de camión sin remordimientos.</p></div></div></details></div>
+<h3 id="t6-auto">Autoevaluación</h3>
+<p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>¿Qué busca el modelo de Wilson?</summary><div class="inner"><p>El tamaño de pedido que <b>minimiza la suma</b> del coste de lanzamiento y el de posesión. En el óptimo ambos costes se igualan.</p></div></details><details class="paso"><summary><span class="pn">2</span>¿Qué pasa si se pide más de lo óptimo?</summary><div class="inner"><p>Se hacen menos pedidos (menos coste de lanzamiento) pero sube el stock medio y con él el coste de posesión. El total aumenta, aunque muy poco cerca del óptimo.</p></div></details><details class="paso"><summary><span class="pn">3</span>¿Qué es el punto de pedido?</summary><div class="inner"><p>El nivel de stock al que hay que lanzar un pedido para que llegue antes de agotarse: \(PP=d\cdot L+SS\).</p></div></details><details class="paso"><summary><span class="pn">4</span>¿Para qué sirve la clasificación ABC?</summary><div class="inner"><p>Para <b>concentrar el control</b> donde está el valor: los artículos A (20 % de referencias, 80 % del valor) llevan control riguroso y los C, control sencillo y pedidos grandes.</p></div></details><details class="paso"><summary><span class="pn">5</span>¿Qué diferencia hay entre demanda independiente y dependiente?</summary><div class="inner"><p>La <b>independiente</b> es la del producto final, que se prevé; la <b>dependiente</b> es la de los componentes, que se <b>calcula</b> a partir de la anterior con la lista de materiales. Para la primera, EOQ; para la segunda, MRP.</p></div></details><details class="paso"><summary><span class="pn">6</span>¿Qué tres entradas necesita un MRP?</summary><div class="inner"><p>El <b>plan maestro de producción</b>, la <b>lista de materiales</b> y el <b>registro de inventarios</b> (disponible y recepciones programadas).</p></div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-05.html"><small>← Anterior</small>T5 · Diseño del sistema productivo</a><a class="nx" href="tema-07.html"><small>Siguiente →</small>T7 · Gestión de la calidad</a></nav>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Organización y Gestión de Empresas (UPCT, GIEyA) · Datos tomados del curso <time datetime="2022-09">2022/23</time> (transparencias, formulario oficial, prácticas, seminarios y exámenes de 2012 a 2022) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>
