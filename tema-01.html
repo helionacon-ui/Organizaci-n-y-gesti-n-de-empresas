@@ -17,24 +17,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -46,7 +86,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <main>
 <section class="sec tema" style="--tc:var(--c2);--tcs:var(--c2s)">
 <div class="sh"><span aria-hidden="true" class="badge">1</span><div class="shx"><p class="kick">La empresa y su gestión · Tema 1</p><h2 id="t1">La empresa</h2><div class="tags"><span class="tag">La empresa y su gestión</span><span class="tag">Empresa y gestión</span></div></div></div>
-<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> definir qué es una empresa, clasificarla por tamaño, sector y forma jurídica, y entender sus objetivos y su función económica.</p><ul>
+<div class="zero"><p class="ft">Desde cero</p><p class="obj"><b>Objetivo:</b> definir qué es una empresa, clasificarla por tamaño, sector y forma jurídica, y entender sus objetivos y su función económica.</p><ul>
 <li>Una empresa es una <b>unidad económica de producción</b> que combina factores (trabajo, capital, materiales, información) para obtener bienes o servicios con los que satisfacer necesidades y obtener un beneficio.</li>
 <li>Como <b>sistema</b>, es abierta (intercambia con el entorno), jerárquica, con objetivos y con capacidad de autorregulación.</li>
 <li>Los <b>elementos</b> de la empresa: factores humanos (propietarios, directivos, trabajadores), factores materiales (activos fijos y circulantes), la organización y el entorno.</li>
@@ -57,10 +97,10 @@ details>summary{line-height:1.7;padding-block:.5em}
 <!--ill--><div class="ill-wrap"><h3 class="ill-h" style="margin:22px 0 4px">En imágenes</h3><figure class="ill"><div class="ill-t">A partir de cuántas unidades se gana dinero</div><svg viewBox="0 0 560 262" role="img" aria-label="Punto muerto" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><line x1="36" y1="214" x2="282.8" y2="214" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="290,214 282.7,217.3 282.7,210.7" fill="var(--muted)"/><line x1="36" y1="214" x2="36" y2="37.2" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="36,30 39.3,37.3 32.7,37.3" fill="var(--muted)"/><text x="290" y="230" fill="var(--muted)" font-size="12" text-anchor="end" font-style="italic" opacity="1">Q</text><text x="42" y="28" fill="var(--muted)" font-size="12" text-anchor="start" font-style="italic" opacity="1">€</text><line x1="36" y1="150" x2="280" y2="150" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="5 3" opacity="1" stroke-linecap="round"/><text x="282" y="146" fill="var(--muted)" font-size="11.5" text-anchor="end" font-weight="700" opacity="1">CF</text><line x1="36" y1="150" x2="280" y2="50" stroke="var(--c6,#2c8a52)" stroke-width="2.8" opacity="1" stroke-linecap="round"/><text x="100" y="80" fill="var(--c6,#2c8a52)" font-size="11" text-anchor="start" font-weight="700" opacity="1">costes totales</text><text x="282" y="30" fill="var(--c5,#c43d63)" font-size="11" text-anchor="end" font-weight="700" opacity="1">ingresos</text><line x1="36" y1="214" x2="280" y2="36" stroke="var(--c5,#c43d63)" stroke-width="2.8" opacity="1" stroke-linecap="round"/><circle cx="236.2" cy="68" r="5" fill="var(--warn,#b8730c)" stroke="none" stroke-width="1.8" opacity="1"/><text x="244.2" y="86" fill="var(--warn,#b8730c)" font-size="13" text-anchor="start" font-weight="700" opacity="1">Q*</text><line x1="236.2" y1="68" x2="236.2" y2="214" stroke="var(--warn,#b8730c)" stroke-width="1.2" stroke-dasharray="4 3" opacity="1" stroke-linecap="round"/><text x="330" y="56" fill="var(--tc,var(--accent))" font-size="14.5" text-anchor="start" font-weight="700" opacity="1">Q* = CF / (p − c_v)</text><text x="330" y="89" fill="var(--fg)" font-size="12.5" text-anchor="start" opacity="1">Por debajo de Q*: pérdidas.</text><text x="330" y="111" fill="var(--fg)" font-size="12.5" text-anchor="start" opacity="1">Por encima: beneficios.</text><text x="330" y="144" fill="var(--muted)" font-size="13" text-anchor="start" opacity="1">p − c_v = margen de</text><text x="330" y="166" fill="var(--muted)" font-size="13" text-anchor="start" opacity="1">contribución unitario.</text></svg><figcaption>El punto muerto es la cantidad en que los ingresos igualan a los costes totales; el margen de contribución cubre los costes fijos.</figcaption></figure><figure class="ill"><div class="ill-t">Cuatro tamaños según trabajadores y facturación</div><svg viewBox="0 0 560 262" role="img" aria-label="Tamaños de empresa" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><text x="230" y="44" fill="var(--muted)" font-size="10.5" text-anchor="start" font-weight="700" opacity="1">trabajadores</text><text x="310" y="44" fill="var(--muted)" font-size="10.5" text-anchor="start" font-weight="700" opacity="1">facturación</text><text x="24" y="73" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="600" opacity="1">Micro</text><rect x="90" y="56" width="22" height="24" rx="5" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.25"/><text x="230" y="73" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">&lt; 10</text><text x="310" y="73" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">≤ 2 M€</text><text x="24" y="113" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="600" opacity="1">Pequeña</text><rect x="90" y="96" width="40" height="24" rx="5" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.25"/><text x="230" y="113" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">&lt; 50</text><text x="310" y="113" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">≤ 10 M€</text><text x="24" y="153" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="600" opacity="1">Mediana</text><rect x="90" y="136" width="76" height="24" rx="5" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.25"/><text x="230" y="153" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">&lt; 250</text><text x="310" y="153" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">≤ 50 M€</text><text x="24" y="193" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="600" opacity="1">Grande</text><rect x="90" y="176" width="120" height="24" rx="5" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.25"/><text x="230" y="193" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">≥ 250</text><text x="310" y="193" fill="var(--fg)" font-size="12.5" text-anchor="start" font-weight="700" opacity="1">&gt; 50 M€</text><text x="24" y="236" fill="var(--muted)" font-size="10.5" text-anchor="start" font-weight="500" opacity="1">criterios UE: trabajadores y facturación o balance</text></svg><figcaption>La clasificación europea combina el número de empleados con el volumen de negocio para distinguir micro, pequeña, mediana y gran empresa.</figcaption></figure></div><!--/ill--><details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 1 <span class="src">8 entradas</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Significado</th><th>Unidad · nota</th></tr><tr><td class="sym">CF</td><td>costes fijos</td><td class="u">€</td></tr><tr><td class="sym">cv</td><td>coste variable unitario</td><td class="u">€/ud</td></tr><tr><td class="sym">p</td><td>precio de venta</td><td class="u">€/ud</td></tr><tr><td class="sym">p − cv</td><td>margen de contribución</td><td class="u">€/ud</td></tr><tr><td class="sym">Q*</td><td>punto muerto</td><td class="u">CF/(p−cv)</td></tr><tr><td class="sym">B</td><td>beneficio</td><td class="u">p·Q − (CF + cv·Q)</td></tr><tr><td class="sym">ROA</td><td>rentabilidad económica</td><td class="u">BAII/Activo</td></tr><tr><td class="sym">ROE</td><td>rentabilidad financiera</td><td class="u">Bº neto/Fondos propios</td></tr></table></div></div></details>
 <figure class="fig"><p class="ft">Calculadora interactiva - punto muerto y beneficio</p><div data-sim="puntomuerto"></div><figcaption>Mueve los controles y observa cómo cambia el resultado: es el mismo cálculo que hay que saber hacer a mano en el examen de problemas.</figcaption></figure>
-<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Qué es una empresa y para qué sirve</p><p>Una <b>empresa</b> es una unidad económica que combina recursos (trabajo, capital, tecnología, materias primas) para producir bienes o servicios y venderlos, buscando unos objetivos. Hay tres ideas que los exámenes confunden: la <b>empresa</b> (la unidad económica que produce), la <b>sociedad</b> (la forma jurídica que adopta: SL, SA, cooperativa…) y el <b>establecimiento</b> (el lugar físico, una fábrica o una tienda). Una empresa puede tener varios establecimientos y una sola forma jurídica. El <b>beneficio</b> no es el único objetivo: también cuentan la supervivencia, el crecimiento, la cuota de mercado, el empleo o la imagen, y a menudo están en conflicto.</p>
+<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Qué es una empresa y para qué sirve</p><p class="lede">Una <b>empresa</b> es una unidad económica que combina recursos (trabajo, capital, tecnología, materias primas) para producir bienes o servicios y venderlos, buscando unos objetivos. Hay tres ideas que los exámenes confunden: la <b>empresa</b> (la unidad económica que produce), la <b>sociedad</b> (la forma jurídica que adopta: SL, SA, cooperativa…) y el <b>establecimiento</b> (el lugar físico, una fábrica o una tienda). Una empresa puede tener varios establecimientos y una sola forma jurídica. El <b>beneficio</b> no es el único objetivo: también cuentan la supervivencia, el crecimiento, la cuota de mercado, el empleo o la imagen, y a menudo están en conflicto.</p>
 <p>Para clasificarla se usan varios criterios: por <b>tamaño</b> (microempresa, pequeña, mediana, grande: hay que cumplir los criterios de trabajadores <em>y</em> de volumen de negocio o balance), por <b>sector</b> (primario, secundario, terciario), por <b>propiedad</b> (privada, pública, mixta) y por <b>forma jurídica</b>, que decide la responsabilidad de los socios y el capital mínimo.</p><p class="ft">Costes, punto muerto y rentabilidad</p><p>Los <b>costes fijos</b> (CF) no dependen de lo que se produce (alquiler, amortización, sueldos fijos); los <b>variables</b> (\(c_v\)) crecen con cada unidad (materiales, energía de proceso). Cada unidad vendida deja un <b>margen de contribución</b> \(p-c_v\) que ayuda a pagar los fijos. El <b>punto muerto</b> es el volumen en el que el margen acumulado iguala a los costes fijos: \(Q^*=CF/(p-c_v)\). Por debajo hay pérdidas, por encima beneficios. El <b>margen de seguridad</b> mide cuánto pueden caer las ventas antes de entrar en pérdidas.</p>
 <p>La <b>rentabilidad económica</b> (ROA) mide lo que rinde el activo, sea cual sea su financiación. La <b>financiera</b> (ROE) mide lo que rinde el dinero de los socios, y es mayor que la económica cuando se financia con deuda más barata que el rendimiento del activo (<b>apalancamiento</b>); si la deuda cuesta más, el apalancamiento juega en contra.</p></div><!--/amp1--><!--deep--><h3 id="t1-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
-<h4>1. Qué es una empresa</h4>
+<h4><span class="hn">1</span>Qué es una empresa</h4>
 <div class="box key deepnote"><b>Idea clave.</b> una empresa es una organización que combina recursos (personas, capital, tecnología) para producir bienes o servicios y obtener un beneficio o cumplir un fin social.</div>
 <ul><li><b>Recursos</b>: humanos, financieros, materiales e información.</li><li><b>Clasificación</b> por sector (primario, secundario, terciario), por tamaño (pyme, gran empresa) y por forma jurídica (sociedad anónima, sociedad limitada, autónomo).</li></ul>
 <details class="dem"><summary><span class="pn">∴</span>Forma jurídica: responsabilidad</summary><div class="inner"><ul><li><b>Empresario individual o autónomo:</b> responde con todo su patrimonio.</li><li><b>Sociedad limitada (SL)</b> y <b>sociedad anónima (SA)</b>: responden hasta el capital aportado.</li></ul>

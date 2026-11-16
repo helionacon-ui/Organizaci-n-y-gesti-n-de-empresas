@@ -17,24 +17,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -46,7 +86,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <main>
 <section class="sec tema" style="--tc:var(--c3);--tcs:var(--c3s)">
 <div class="sh"><span aria-hidden="true" class="badge">2</span><div class="shx"><p class="kick">La empresa y su gestión · Tema 2</p><h2 id="t2">La empresa y su entorno</h2><div class="tags"><span class="tag">La empresa y su gestión</span><span class="tag">Empresa y gestión</span></div></div></div>
-<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> analizar el entorno general y específico de la empresa con las herramientas habituales (PESTEL, cinco fuerzas, DAFO) y entender la responsabilidad social.</p><ul>
+<div class="zero"><p class="ft">Desde cero</p><p class="obj"><b>Objetivo:</b> analizar el entorno general y específico de la empresa con las herramientas habituales (PESTEL, cinco fuerzas, DAFO) y entender la responsabilidad social.</p><ul>
 <li>La empresa es un <b>sistema abierto</b>: lo que ocurre fuera condiciona lo que puede hacer dentro. De ahí la necesidad de analizar el entorno.</li>
 <li>El <b>entorno general</b> afecta a todas las empresas de un ámbito: se analiza con <b>PESTEL</b> (político, económico, sociocultural, tecnológico, ecológico y legal).</li>
 <li>El <b>entorno específico</b> es el del sector concreto: clientes, proveedores, competidores, productos sustitutivos y entrantes potenciales. Se analiza con las <b>cinco fuerzas de Porter</b>.</li>
@@ -57,14 +97,14 @@ details>summary{line-height:1.7;padding-block:.5em}
 <!--ill--><div class="ill-wrap"><h3 class="ill-h" style="margin:22px 0 4px">En imágenes</h3><figure class="ill"><div class="ill-t">Capas de influencia sobre la empresa</div><svg viewBox="0 0 560 262" role="img" aria-label="Entorno de la empresa" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><circle cx="120" cy="125" r="100" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="1.8" opacity="0.05"/><circle cx="120" cy="125" r="64" fill="var(--c5,#c43d63)" stroke="var(--c5,#c43d63)" stroke-width="1.8" opacity="0.08"/><circle cx="120" cy="125" r="26" fill="var(--c6,#2c8a52)" stroke="var(--c6,#2c8a52)" stroke-width="2" opacity="0.18"/><text x="120" y="129" fill="var(--c6,#2c8a52)" font-size="11" text-anchor="middle" font-weight="700" opacity="1">empresa</text><text x="120" y="83" fill="var(--c5,#c43d63)" font-size="10.5" text-anchor="middle" font-weight="700" opacity="1">entorno específico</text><text x="120" y="41" fill="var(--tc,var(--accent))" font-size="10.5" text-anchor="middle" font-weight="700" opacity="1">entorno general</text><text x="290" y="56" fill="var(--tc,var(--accent))" font-size="14" text-anchor="start" font-weight="700" opacity="1">General (PESTEL):</text><text x="290" y="78" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">político · económico</text><text x="290" y="100" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">social · tecnológico</text><text x="290" y="122" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">ecológico · legal</text><text x="290" y="155" fill="var(--c5,#c43d63)" font-size="14" text-anchor="start" font-weight="700" opacity="1">Específico:</text><text x="290" y="177" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">clientes · proveedores</text><text x="290" y="199" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">competidores</text></svg><figcaption>El entorno general afecta a todas las empresas y el específico a las de un sector; el análisis PESTEL ordena el primero.</figcaption></figure><figure class="ill"><div class="ill-t">Qué hace atractivo o duro un sector</div><svg viewBox="0 0 560 262" role="img" aria-label="Cinco fuerzas de Porter" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><rect x="100" y="100" width="100" height="40" rx="8" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.12"/><text x="150" y="124.4" fill="var(--tc,var(--accent))" font-size="12.5" text-anchor="middle" font-weight="700" opacity="1">Rivalidad</text><rect x="100" y="40" width="100" height="32" rx="8" fill="var(--c5,#c43d63)" stroke="var(--c5,#c43d63)" stroke-width="2" opacity="0.12"/><text x="150" y="59.7" fill="var(--c5,#c43d63)" font-size="10.5" text-anchor="middle" font-weight="700" opacity="1">Nuevos entrantes</text><rect x="100" y="168" width="100" height="32" rx="8" fill="var(--c5,#c43d63)" stroke="var(--c5,#c43d63)" stroke-width="2" opacity="0.12"/><text x="150" y="187.8" fill="var(--c5,#c43d63)" font-size="11" text-anchor="middle" font-weight="700" opacity="1">Sustitutivos</text><rect x="6" y="100" width="86" height="40" rx="8" fill="var(--c6,#2c8a52)" stroke="var(--c6,#2c8a52)" stroke-width="2" opacity="0.12"/><text x="49" y="123.8" fill="var(--c6,#2c8a52)" font-size="11" text-anchor="middle" font-weight="700" opacity="1">Proveedores</text><rect x="208" y="100" width="86" height="40" rx="8" fill="var(--c6,#2c8a52)" stroke="var(--c6,#2c8a52)" stroke-width="2" opacity="0.12"/><text x="251" y="124" fill="var(--c6,#2c8a52)" font-size="11.5" text-anchor="middle" font-weight="700" opacity="1">Clientes</text><line x1="150" y1="74" x2="150" y2="92.6" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="150,98 147.6,92.5 152.4,92.5" fill="var(--muted)"/><line x1="150" y1="166" x2="150" y2="147.4" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="150,142 152.4,147.5 147.6,147.5" fill="var(--muted)"/><line x1="94" y1="120" x2="93.5" y2="120" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="98,120 93.4,122 93.4,118" fill="var(--muted)"/><line x1="206" y1="120" x2="206.5" y2="120" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="202,120 206.6,118 206.6,122" fill="var(--muted)"/><text x="24" y="230" fill="var(--fg)" font-size="11.5" text-anchor="start" font-weight="600" opacity="1">mayor presión de las fuerzas = menor rentabilidad del sector</text></svg><figcaption>Rivalidad, entrada de competidores, sustitutivos y poder de proveedores y clientes determinan la rentabilidad de la industria.</figcaption></figure></div><!--/ill--><details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 2 <span class="src">8 entradas</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Significado</th><th>Unidad · nota</th></tr><tr><td class="sym">PESTEL</td><td>entorno general</td><td class="u">político, económico, social, tecnológico, ecológico, legal</td></tr><tr><td class="sym">5 fuerzas</td><td>entorno específico</td><td class="u">Porter</td></tr><tr><td class="sym">DAFO</td><td>análisis cruzado</td><td class="u">debilidades, amenazas, fortalezas, oportunidades</td></tr><tr><td class="sym">stakeholders</td><td>grupos de interés</td><td class="u"></td></tr><tr><td class="sym">barreras de entrada</td><td>obstáculos al nuevo competidor</td><td class="u"></td></tr><tr><td class="sym">cuota de mercado</td><td>ventas propias / ventas del sector</td><td class="u">%</td></tr><tr><td class="sym">RSC</td><td>responsabilidad social corporativa</td><td class="u"></td></tr><tr><td class="sym">sustitutivos</td><td>productos que cubren la misma necesidad</td><td class="u"></td></tr></table></div></div></details>
 <figure class="fig"><p class="ft">Figura interactiva - las cinco fuerzas y el atractivo del sector</p><div data-sim="entorno"></div><figcaption>Mueve los controles y observa cómo cambia el resultado: es el mismo cálculo que hay que saber hacer a mano en el examen de problemas.</figcaption></figure>
-<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Del entorno general al sector</p><p>El entorno de una empresa son todos los factores externos que la afectan y que no controla. Se estudia en dos capas. El <b>entorno general</b> (igual para todas las empresas de una zona) se analiza con el <b>PESTEL</b>: políticos, económicos, socioculturales, tecnológicos, ecológicos y legales. No se trata de listar todo, sino de quedarse con los que de verdad cambian el negocio. El <b>entorno específico</b> (el sector) se analiza con las <b>cinco fuerzas de Porter</b>: rivalidad entre competidores, poder de clientes, poder de proveedores, productos sustitutivos y nuevos entrantes. Cuantas más fuerzas son intensas, menos rentable es el sector. Las <b>barreras de entrada</b> (economías de escala, diferenciación, capital necesario, acceso a canales, regulación) protegen a las empresas que ya están dentro.</p><p class="ft">DAFO: de lo que ves a lo que haces</p><p>El <b>DAFO</b> cruza lo interno (debilidades y fortalezas de la empresa) con lo externo (amenazas y oportunidades del entorno). Lo interno se controla, lo externo no. Para decidir, se combinan en cuatro tipos de estrategia: <b>ofensiva</b> (fortaleza que aprovecha una oportunidad: crecer), <b>defensiva</b> (fortaleza que protege de una amenaza), de <b>reorientación</b> (corregir una debilidad para aprovechar una oportunidad) y de <b>supervivencia</b> (debilidad frente a una amenaza: replegarse). Un error clásico: poner en «oportunidades» algo que es una fortaleza de la empresa, o en «amenazas» una debilidad propia. Pregunta clave: <em>¿esto depende de la empresa o del entorno?</em></p>
+<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Del entorno general al sector</p><p class="lede">El entorno de una empresa son todos los factores externos que la afectan y que no controla. Se estudia en dos capas. El <b>entorno general</b> (igual para todas las empresas de una zona) se analiza con el <b>PESTEL</b>: políticos, económicos, socioculturales, tecnológicos, ecológicos y legales. No se trata de listar todo, sino de quedarse con los que de verdad cambian el negocio. El <b>entorno específico</b> (el sector) se analiza con las <b>cinco fuerzas de Porter</b>: rivalidad entre competidores, poder de clientes, poder de proveedores, productos sustitutivos y nuevos entrantes. Cuantas más fuerzas son intensas, menos rentable es el sector. Las <b>barreras de entrada</b> (economías de escala, diferenciación, capital necesario, acceso a canales, regulación) protegen a las empresas que ya están dentro.</p><p class="ft">DAFO: de lo que ves a lo que haces</p><p>El <b>DAFO</b> cruza lo interno (debilidades y fortalezas de la empresa) con lo externo (amenazas y oportunidades del entorno). Lo interno se controla, lo externo no. Para decidir, se combinan en cuatro tipos de estrategia: <b>ofensiva</b> (fortaleza que aprovecha una oportunidad: crecer), <b>defensiva</b> (fortaleza que protege de una amenaza), de <b>reorientación</b> (corregir una debilidad para aprovechar una oportunidad) y de <b>supervivencia</b> (debilidad frente a una amenaza: replegarse). Un error clásico: poner en «oportunidades» algo que es una fortaleza de la empresa, o en «amenazas» una debilidad propia. Pregunta clave: <em>¿esto depende de la empresa o del entorno?</em></p>
 <p>Además, la <b>cuota de mercado</b> (ventas de la empresa entre ventas del sector) mide el peso competitivo. Ojo: si las ventas crecen pero el sector crece más, la cuota baja.</p></div><!--/amp1--><!--deep--><h3 id="t2-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
-<h4>1. El entorno de la empresa</h4>
+<h4><span class="hn">1</span>El entorno de la empresa</h4>
 <div class="box key deepnote"><b>Idea clave.</b> la empresa no actúa en el vacío: su éxito depende de clientes, competidores, proveedores, la tecnología, la economía y la legislación.</div>
 <ul><li><b>Entorno general</b> (económico, social, tecnológico, legal, político): afecta a todos los sectores.</li><li><b>Entorno específico</b> (sector): clientes, proveedores, competidores y productos sustitutivos.</li></ul>
 <details class="dem"><summary><span class="pn">∴</span>Análisis DAFO</summary><div class="inner"><ul><li><b>Debilidades y fortalezas</b>: factores internos que puede controlar.</li><li><b>Amenazas y oportunidades</b>: factores externos que no puede controlar.</li></ul>
 <div class="box trap deepnote"><b>Cuidado.</b> Una fortaleza no es una oportunidad: la fortaleza es algo propio de la empresa. La oportunidad es algo externo que la empresa puede aprovechar.</div></div></details>
-<h4>2. Las cinco fuerzas de Porter</h4>
+<h4><span class="hn">2</span>Las cinco fuerzas de Porter</h4>
 <p>Porter describe la rentabilidad de un sector con cinco fuerzas: la rivalidad entre competidores, la amenaza de nuevos entrantes, la de productos sustitutivos y el poder de negociación de clientes y de proveedores.</p>
 </div><!--/deep--><h3 id="t2-formulas">Fórmulas y conceptos que hay que saber</h3>
 <div class="box key"><ul>

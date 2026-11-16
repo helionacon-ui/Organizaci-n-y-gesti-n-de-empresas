@@ -17,24 +17,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -46,7 +86,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <main>
 <section class="sec tema" style="--tc:var(--c5);--tcs:var(--c5s)">
 <div class="sh"><span aria-hidden="true" class="badge">4</span><div class="shx"><p class="kick">La empresa y su gestión · Tema 4</p><h2 id="t4">La función de producción y la productividad</h2><div class="tags"><span class="tag">La empresa y su gestión</span><span class="tag">Producción</span></div></div></div>
-<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> entender el subsistema de producción, clasificar los sistemas productivos y calcular la productividad parcial y global.</p><ul>
+<div class="zero"><p class="ft">Desde cero</p><p class="obj"><b>Objetivo:</b> entender el subsistema de producción, clasificar los sistemas productivos y calcular la productividad parcial y global.</p><ul>
 <li>La <b>función de producción</b> transforma entradas (materiales, trabajo, energía, información) en salidas (bienes o servicios) añadiendo valor.</li>
 <li>Las <b>decisiones</b> de producción se dividen en estratégicas (producto, proceso, capacidad, localización), tácticas (planificación agregada, inventarios) y operativas (programación, control).</li>
 <li>Los <b>sistemas productivos</b> se clasifican por continuidad (continua, repetitiva, por lotes, por proyecto) y por relación con el cliente (contra almacén, bajo pedido, montaje bajo pedido).</li>
@@ -57,15 +97,15 @@ details>summary{line-height:1.7;padding-block:.5em}
 <!--ill--><div class="ill-wrap"><h3 class="ill-h" style="margin:22px 0 4px">En imágenes</h3><figure class="ill"><div class="ill-t">Qué sale por cada cosa que entra</div><svg viewBox="0 0 560 262" role="img" aria-label="Productividad" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><rect x="24" y="70" width="70" height="36" rx="8" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.12"/><text x="59" y="92.2" fill="var(--tc,var(--accent))" font-size="12" text-anchor="middle" font-weight="700" opacity="1">Entradas</text><rect x="120" y="70" width="70" height="36" rx="8" fill="var(--c5,#c43d63)" stroke="var(--c5,#c43d63)" stroke-width="2" opacity="0.12"/><text x="155" y="92.2" fill="var(--c5,#c43d63)" font-size="12" text-anchor="middle" font-weight="700" opacity="1">Proceso</text><rect x="216" y="70" width="70" height="36" rx="8" fill="var(--c6,#2c8a52)" stroke="var(--c6,#2c8a52)" stroke-width="2" opacity="0.12"/><text x="251" y="92.2" fill="var(--c6,#2c8a52)" font-size="12" text-anchor="middle" font-weight="700" opacity="1">Salidas</text><line x1="96" y1="88" x2="111.7" y2="88" stroke="var(--muted)" stroke-width="1.8" opacity="1" stroke-linecap="round"/><polygon points="118,88 111.6,90.9 111.6,85.1" fill="var(--muted)"/><line x1="192" y1="88" x2="207.7" y2="88" stroke="var(--muted)" stroke-width="1.8" opacity="1" stroke-linecap="round"/><polygon points="214,88 207.6,90.9 207.6,85.1" fill="var(--muted)"/><text x="59" y="128" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-weight="500" opacity="1">personal</text><text x="59" y="144" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-weight="500" opacity="1">materiales</text><text x="59" y="160" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-weight="500" opacity="1">energía</text><text x="59" y="176" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-weight="500" opacity="1">capital</text><text x="251" y="128" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-weight="500" opacity="1">unidades</text><text x="251" y="144" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-weight="500" opacity="1">servicio</text><text x="24" y="216" fill="var(--tc,var(--accent))" font-size="14" text-anchor="start" font-weight="700" opacity="1">Productividad = salidas / entradas</text></svg><figcaption>La productividad compara lo producido con los recursos empleados; puede medirse respecto a un factor o a todos ellos.</figcaption></figure><figure class="ill"><div class="ill-t">Con la práctica, cada unidad lleva menos tiempo</div><svg viewBox="0 0 560 262" role="img" aria-label="Curva de aprendizaje" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><line x1="36" y1="214" x2="282.8" y2="214" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="290,214 282.7,217.3 282.7,210.7" fill="var(--muted)"/><line x1="36" y1="214" x2="36" y2="37.2" stroke="var(--muted)" stroke-width="1.6" opacity="1" stroke-linecap="round"/><polygon points="36,30 39.3,37.3 32.7,37.3" fill="var(--muted)"/><text x="290" y="230" fill="var(--muted)" font-size="12" text-anchor="end" font-style="italic" opacity="1">unidades acumuladas</text><text x="42" y="28" fill="var(--muted)" font-size="12" text-anchor="start" font-style="italic" opacity="1">horas/unidad</text><path d="M36,57.2 L39,59.6 L42,62 L45,64.4 L48,66.7 L51,68.9 L54,71.2 L57,73.3 L60,75.5 L63,77.6 L66,79.7 L69,81.7 L72,83.7 L75,85.7 L78,87.6 L81,89.5 L84,91.4 L87,93.2 L90,95 L93,96.8 L96,98.5 L99,100.3 L102,101.9 L105,103.6 L108,105.2 L111,106.8 L114,108.4 L117,109.9 L120,111.4 L123,112.9 L126,114.4 L129,115.8 L132,117.2 L135,118.6 L138,120 L141,121.3 L144,122.6 L147,123.9 L150,125.2 L153,126.5 L156,127.7 L159,128.9 L162,130.1 L165,131.2 L168,132.4 L171,133.5 L174,134.6 L177,135.7 L180,136.8 L183,137.8 L186,138.8 L189,139.9 L192,140.8 L195,141.8 L198,142.8 L201,143.7 L204,144.7 L207,145.6 L210,146.5 L213,147.3 L216,148.2 L219,149.1 L222,149.9 L225,150.7 L228,151.5 L231,152.3 L234,153.1 L237,153.9 L240,154.6 L243,155.3 L246,156.1 L249,156.8 L252,157.5 L255,158.2 L258,158.9 L261,159.5 L264,160.2 L267,160.8 L270,161.4 L273,162.1 L276,162.7" fill="none" stroke="var(--tc,var(--accent))" stroke-width="3" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><text x="330" y="56" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">Cada vez que se duplica</text><text x="330" y="78" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">la producción, el</text><text x="330" y="100" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">tiempo por unidad</text><text x="330" y="122" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">baja un porcentaje</text><text x="330" y="144" fill="var(--fg)" font-size="13" text-anchor="start" opacity="1">fijo (p. ej. 80 %).</text><text x="330" y="177" fill="var(--tc,var(--accent))" font-size="14" text-anchor="start" font-weight="700" opacity="1">T_n = T₁ · n^b</text></svg><figcaption>La curva de aprendizaje expresa que la productividad mejora de forma regular conforme se acumula experiencia.</figcaption></figure></div><!--/ill--><details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 4 <span class="src">8 entradas</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Significado</th><th>Unidad · nota</th></tr><tr><td class="sym">P</td><td>productividad</td><td class="u">salidas / entradas</td></tr><tr><td class="sym">P parcial</td><td>de un factor</td><td class="u">Q/vA</td></tr><tr><td class="sym">P global</td><td>de todos los factores</td><td class="u">ΣpQ / Σcv</td></tr><tr><td class="sym">IPG</td><td>índice de productividad global</td><td class="u">PG1/PG0</td></tr><tr><td class="sym">eficiencia</td><td>resultado / recursos</td><td class="u"></td></tr><tr><td class="sym">eficacia</td><td>cumplimiento del objetivo</td><td class="u"></td></tr><tr><td class="sym">P marginal</td><td>incremento por unidad de factor</td><td class="u"></td></tr><tr><td class="sym">curva de experiencia</td><td>caída del coste al duplicar la producción</td><td class="u"></td></tr></table></div></div></details>
 <figure class="fig"><p class="ft">Calculadora interactiva - productividad parcial y global</p><div data-sim="productividad"></div><figcaption>Mueve los controles y observa cómo cambia el resultado: es el mismo cálculo que hay que saber hacer a mano en el examen de problemas.</figcaption></figure>
-<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Productividad: cuánto sacas por lo que gastas</p><p>La productividad compara lo que se produce con lo que se consume. La <b>parcial</b> usa un solo factor (unidades por hora, por operario, por kg) y sirve para ver cómo va ese recurso concreto. La <b>global</b> mide todo junto: valor de la producción dividido entre el coste de <em>todos</em> los factores. Al comparar periodos hay que usar <b>los mismos precios</b> en ambos, porque si no se mide la inflación, no la mejora. El índice \(IPG=P_{G,1}/P_{G,0}\) dice cuánto se ha mejorado. Distingue también <b>eficiencia</b> (hacerlo con pocos recursos) de <b>eficacia</b> (conseguir el objetivo): se puede ser eficaz y muy ineficiente.</p><p class="ft">Curva de experiencia y OEE</p><p>La <b>curva de experiencia</b> dice que cada vez que se duplica la producción acumulada, el coste unitario baja un porcentaje fijo: con una «curva del 80 %», cada duplicación lo deja al 80 %. Se modela con \(C_n=C_1\,n^{\log_2\lambda}\) (con \(\lambda=0{,}8\), \(\log_2\lambda=-0{,}322\)). Por eso las empresas ganan cuota con volumen: bajan costes más rápido que sus rivales.</p>
+<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Productividad: cuánto sacas por lo que gastas</p><p class="lede">La productividad compara lo que se produce con lo que se consume. La <b>parcial</b> usa un solo factor (unidades por hora, por operario, por kg) y sirve para ver cómo va ese recurso concreto. La <b>global</b> mide todo junto: valor de la producción dividido entre el coste de <em>todos</em> los factores. Al comparar periodos hay que usar <b>los mismos precios</b> en ambos, porque si no se mide la inflación, no la mejora. El índice \(IPG=P_{G,1}/P_{G,0}\) dice cuánto se ha mejorado. Distingue también <b>eficiencia</b> (hacerlo con pocos recursos) de <b>eficacia</b> (conseguir el objetivo): se puede ser eficaz y muy ineficiente.</p><p class="ft">Curva de experiencia y OEE</p><p>La <b>curva de experiencia</b> dice que cada vez que se duplica la producción acumulada, el coste unitario baja un porcentaje fijo: con una «curva del 80 %», cada duplicación lo deja al 80 %. Se modela con \(C_n=C_1\,n^{\log_2\lambda}\) (con \(\lambda=0{,}8\), \(\log_2\lambda=-0{,}322\)). Por eso las empresas ganan cuota con volumen: bajan costes más rápido que sus rivales.</p>
 <p>El <b>OEE</b> (efectividad global del equipo) multiplica tres factores: <b>disponibilidad</b> (tiempo realmente en marcha entre el programado), <b>rendimiento</b> (velocidad real frente a la ideal) y <b>calidad</b> (piezas buenas entre totales). Como se multiplican, un 90 % en cada uno da solo un 73 %: de ahí que valores aparentemente altos oculten mucha pérdida.</p></div><!--/amp1--><!--deep--><h3 id="t4-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
-<h4>1. Productividad</h4>
+<h4><span class="hn">1</span>Productividad</h4>
 <div class="box key deepnote"><b>Idea clave.</b> la productividad mide cuánto se produce con cada unidad de recurso utilizada. Cuanto mayor es el resultado por recurso, más productiva es la empresa.</div>
 <div class="eqd">\[\text{Productividad}=\frac{\text{Producción}}{\text{Recursos utilizados}}\]</div>
 <ul><li><b>Productividad parcial</b>: respecto a un solo factor (por ejemplo, la mano de obra).</li><li><b>Productividad total</b>: respecto a todos los factores a la vez.</li></ul>
 <details class="dem"><summary><span class="pn">∴</span>Función de producción</summary><div class="inner"><p>La función de producción relaciona los factores de entrada con la cantidad producida. Si duplicando todos los factores se duplica la producción, hay <b>rendimientos constantes</b>. Si la producción crece más que proporcional, hay <b>rendimientos crecientes</b>; si crece menos, <b>decrecientes</b>.</p>
 <div class="box trap deepnote"><b>Cuidado.</b> Los rendimientos decrecientes aparecen cuando un factor se añade sin cambiar los demás. No son malos en sí: indican que hay que reequilibrar la producción.</div></div></details>
-<h4>2. Costes</h4>
+<h4><span class="hn">2</span>Costes</h4>
 <ul><li><b>Costes fijos</b>: no cambian con el volumen (alquiler).</li><li><b>Costes variables</b>: cambian con el volumen (materia prima).</li><li><b>Coste total</b> = fijos + variables. <b>Coste medio</b> = coste total / unidades.</li></ul>
 <div class="eqd">\[\text{Punto muerto: }Q^*=\frac{CF}{p-cv}\]</div>
 <p>\(p\) es el precio unitario y \(cv\) el coste variable unitario. Por debajo del punto muerto se pierde dinero.</p>
