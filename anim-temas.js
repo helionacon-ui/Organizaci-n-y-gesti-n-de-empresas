@@ -36,7 +36,7 @@ M.reg('oge-t4',M.traza({title:'Función de producción y rendimientos decrecient
 /* T5 equilibrado de una línea */
 var TK=[['A',4],['B',3],['C',5],['D',2],['E',6],['F',3],['G',4],['H',2]],CT=9;
 var ST=(function(){var s=[[]],sum=0;TK.forEach(function(k){if(sum+k[1]>CT){s.push([]);sum=0;}s[s.length-1].push(k);sum+=k[1];});return s;})();
-M.reg('oge-t5',M.base({title:'Diseño del sistema productivo: equilibrar una línea',H:560,dur:18,caps:[[6,'Las tareas de montaje se reparten entre estaciones en orden de precedencia sin superar el tiempo de ciclo c (el ritmo de salida).'],[12,'Cada estación acumula tareas hasta que la siguiente ya no cabe; entonces se abre una nueva estación.'],[99,'Eficiencia = Σ tiempos / (n · c). El hueco entre cada barra y la línea de ciclo es tiempo ocioso.']]},
+M.reg('oge-t5b',M.base({title:'Diseño del sistema productivo: equilibrar una línea',H:560,dur:18,caps:[[6,'Las tareas de montaje se reparten entre estaciones en orden de precedencia sin superar el tiempo de ciclo c (el ritmo de salida).'],[12,'Cada estación acumula tareas hasta que la siguiente ya no cabe; entonces se abre una nueva estación.'],[99,'Eficiencia = Σ tiempos / (n · c). El hueco entre cada barra y la línea de ciclo es tiempo ocioso.']]},
  function(D,t){var A=U.axes(D,{xr:[0,ST.length+0.4],yr:[0,11],xt:[],yt:[3,6,9],yd:0,xl:'estaciones',yl:'t (min)'},{x:80,y:96,w:480,h:300,grid:true}),n=Math.floor(seg(t,1,13)*TK.length+0.001),done=0,bw=(A.X(1)-A.X(0))*0.6;
   D.line(A.X(0),A.Y(CT),A.X(ST.length+0.4),A.Y(CT),C.bad,2,[6,4]);D.text('c = '+CT+' min',A.X(ST.length+0.35),A.Y(CT)-8,{s:15,c:C.bad,a:'right'});
   ST.forEach(function(s,i){var y=0;s.forEach(function(k){if(done>=n)return;done++;var x=A.X(i+0.5)-bw/2;D.rect(x,A.Y(y+k[1]),bw,A.Y(y)-A.Y(y+k[1]),C.m,RG(C.f,.25),1.6);D.text(k[0]+' ('+k[1]+')',x+bw/2,A.Y(y+k[1]/2)+5,{s:14,a:'center',c:C.w});y+=k[1];});D.text('Est. '+(i+1),A.X(i+0.5),A.Y(0)+20,{s:14,a:'center',c:C.mut});});
@@ -68,4 +68,11 @@ M.reg('oge-t8',M.base({title:'Gestión de proyectos: PERT y camino crítico',H:5
    D.text(a[0]+' ('+a[3]+')',(x1+x2)/2+(a[0]==='F'?0:0),(y1+y2)/2-10,{s:16,a:'center',c:c,bold:crit&&CRIT[a[0]]});});
   NO.forEach(function(n,i){D.dot(n[1],n[2],26,RG(C.m,.12));D.ring(n[1],n[2],26,C.m,2);D.text(n[0]+'',n[1],n[2]+6,{s:18,a:'center',c:C.m,bold:true});if(i<show)D.text('t = '+ET[n[0]],n[1],n[2]+(n[2]>300?50:-36),{s:16,a:'center',c:C.hl,bold:true});});
   U.readout(D,[crit?'camino crítico: B → D → E   duración = 12 días':'calculando tiempos más tempranos…'],505);}));
+/* T5 VAN y TIR */
+function van(r){var v=-1000;for(var k=1;k<=5;k++)v+=300/Math.pow(1+r,k);return v;}
+var TIR=(function(){var lo=0,hi=1;for(var i=0;i<60;i++){var m=(lo+hi)/2;if(van(m)>0)lo=m;else hi=m;}return lo;})();
+M.reg('oge-t5',M.traza({title:'Inversión: VAN y TIR',H:560,dur:16,x0:0,x1:0.3,ax:{xr:[0,0.31],yr:[-300,550],xt:[0.05,0.1,0.15,0.2,0.25,0.3],yt:[-200,200,400],xf:function(v){return nf(v*100,0)+' %';},yd:0,xl:'tasa r',yl:'VAN (€)'},h:300,f:van,
+ extra:function(D,A){D.dot(A.X(TIR),A.Y(0),6,C.hl);D.text('TIR = '+nf(TIR*100,1)+' %',A.X(TIR)+6,A.Y(0)-12,{s:15,c:C.hl,bold:true});},
+ read:function(r){var v=van(r);return ['inversión 1 000 €, cobros de 300 € durante 5 años','r = '+nf(r*100,1)+' %    VAN = '+nf(v,0)+' €  → '+(v>=0?'se acepta':'se rechaza')];},
+ caps:[[5,'El VAN suma los flujos de caja descontados a la tasa r: <i>VAN = −I₀ + Σ F<sub>t</sub>/(1 + r)<sup>t</sup></i>. Un euro dentro de cinco años vale menos que hoy.'],[10,'Al subir la tasa de descuento los cobros futuros pesan menos y el VAN baja.'],[99,'La TIR es la tasa que hace VAN = 0. El proyecto interesa si la TIR supera el coste del capital (o si el VAN a esa tasa es positivo).']]}));
 })();
